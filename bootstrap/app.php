@@ -42,7 +42,7 @@ $capsule->bootEloquent();
 
 $container['console'] = function () {
     $application = new Symfony\Component\Console\Application();
-    $application->add();
+    $application->add(new App\Console\Commands\AddEndpoint());
     return $application;
 };
 
