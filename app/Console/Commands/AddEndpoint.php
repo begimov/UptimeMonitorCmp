@@ -10,11 +10,12 @@ class AddEndpoint extends Command
 {
     protected function configure()
     {
-        # code...
+        $this->setName('endpoint:add')
+            ->setDescription('Adds new endpoint to UMonitor to watch for');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        # code...
+        $output->writeln('test');
     }
 }
