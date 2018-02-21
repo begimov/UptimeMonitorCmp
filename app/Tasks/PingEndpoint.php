@@ -3,6 +3,7 @@
 namespace App\Tasks;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class PingEndpoint
 {
@@ -17,6 +18,10 @@ class PingEndpoint
 
     public function handle()
     {
-        dump($this->endpoint->uri);
+        try {
+            $response = $this->guzzle->request('GET', $this->endpoint->uri);
+        } catch (RequestException $e) {
+            dump($e->getResponse()->getStatusCode());
+        }
     }
 }
