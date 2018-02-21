@@ -19,6 +19,10 @@ class Run extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        //
+        $endpoints = Endpoint::get();
+
+        foreach ($endpoints as $endpoint) {
+            //
+        }
     }
 }
