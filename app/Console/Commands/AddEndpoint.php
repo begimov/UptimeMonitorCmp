@@ -11,7 +11,8 @@ class AddEndpoint extends Command
     protected function configure()
     {
         $this->setName('endpoint:add')
-            ->setDescription('Adds new endpoint to UMonitor to watch for');
+            ->setDescription('Adds new endpoint to UMonitor to watch for')
+            ->addArgument('endpoint');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
