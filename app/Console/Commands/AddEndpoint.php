@@ -17,15 +17,17 @@ class AddEndpoint extends Command
         $this->setName('endpoint:add')
             ->setDescription('Adds new endpoint to UMonitor to watch for')
             ->addArgument('endpoint', InputArgument::REQUIRED, 'Endpoint URL')
-            ->addOption('frequency', 'f', InputOption::VALUE_OPTIONAL, 'Number of endpoint checks per minute', 1);
+            ->addOption('frequency', 'f', InputOption::VALUE_OPTIONAL, 'Frequency of endpoint checks in minutes', 1);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // TODO: add validation for Endpoint data
         Endpoint::create([
-            'uri' => $input->getArgument('endpoint'),
+            'uri' => $endpoint = $input->getArgument('endpoint'),
             'frequency' => $input->getOption('frequency')
         ]);
+
+        $output->writeln('<info>New endpoint "' . $endpoint . '" succesfully created</info>');
     }
 }
