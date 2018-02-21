@@ -20,6 +20,7 @@ class AddEndpoint extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('test');
+        $output->writeln($input->getArgument('endpoint'));
+        $output->writeln($input->getOption('frequency'));
     }
 }
