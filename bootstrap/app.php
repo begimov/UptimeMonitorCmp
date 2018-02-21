@@ -47,9 +47,7 @@ $container['guzzle'] = function () {
 $container['console'] = function ($container) {
     $application = new Symfony\Component\Console\Application();
     $application->add(new App\Console\Commands\AddEndpoint());
-    $application->add(new App\Console\Commands\Run(
-        $container->guzzle
-    ));
+    $application->add(new App\Console\Commands\Run($container->guzzle));
     return $application;
 };
 
