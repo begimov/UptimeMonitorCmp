@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Endpoint;
+
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,7 +22,10 @@ class AddEndpoint extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln($input->getArgument('endpoint'));
-        $output->writeln($input->getOption('frequency'));
+        // TODO: add validation for Endpoint data
+        Endpoint::create([
+            'uri' => $input->getArgument('endpoint'),
+            'frequency' => $input->getOption('frequency')
+        ]);
     }
 }
