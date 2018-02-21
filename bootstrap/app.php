@@ -40,6 +40,10 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+$container['guzzle'] = function () {
+    return new GuzzleHttp\Client();
+};
+
 $container['console'] = function () {
     $application = new Symfony\Component\Console\Application();
     $application->add(new App\Console\Commands\AddEndpoint());
